@@ -1,20 +1,29 @@
 import { Home } from "./pages/Home/Home";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
+import background from "../assets/images/background.png"
 
 export default function Index() {
     return (
-      <SafeAreaProvider>
-        <SafeAreaView style={s.container}>
-          <Home />
-        </SafeAreaView>
-      </SafeAreaProvider>
+        <ImageBackground source={background} style={s.background} imageStyle={s.img}>
+        <SafeAreaProvider>
+          <SafeAreaView style={s.container}>
+            <Home />
+          </SafeAreaView>
+          </SafeAreaProvider>
+        </ImageBackground>
     )
 }
 
 const s = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+  },
+  background: {
+    flex: 1,
+    backgroundColor: "black",
+  },
+  img: {
+    opacity: 0.75,
   },
 });
